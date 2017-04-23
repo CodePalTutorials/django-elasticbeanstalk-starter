@@ -3,3 +3,8 @@ q
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Ingore Sqlite databases
+*.sqlite3
+
+.idea/
