@@ -25,7 +25,7 @@ SECRET_KEY = '^c(8#hou^j+f-ypnln!rdpko6m&5v*h6*(3e!-&z9u(ti77ss0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'django-env.c2p2kthdet.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django-env.c2p2kthdet.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'ebdjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myproject',
-        'USER': 'dc',
-        'PASSWORD': 'dc',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': os.environ['RDS_DB_NAME'],
+        'USER': os.environ['RDS_USERNAME'],
+        'PASSWORD': os.environ['RDS_PASSWORD'],
+        'HOST': os.environ['RDS_HOSTNAME'],
+        'PORT': os.environ['RDS_PORT'],
     }
 }
 
@@ -124,3 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+try:
+    from local_settings import *
+except ImportError:
+    pass
