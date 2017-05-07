@@ -25,7 +25,7 @@ SECRET_KEY = '^c(8#hou^j+f-ypnln!rdpko6m&5v*h6*(3e!-&z9u(ti77ss0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'django-env.c2p2kthdet.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django-env.c2p2kthdet.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -70,19 +70,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ebdjango.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myproject',
-        'USER': 'dc',
-        'PASSWORD': 'dc',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
 
 
 # Password validation
@@ -124,3 +112,23 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+# Celery Settings
+# Celery settings for django
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+CELERY_SEND_EVENTS = False
+
+
+if os.environ.get('ENVIRONMENT') == "PROD":
+    print "Running on Production Environment settings"
+    from production_settings import *
+elif os.environ.get('ENVIRONMENT') == "TEST":
+    print "Running on Test Environment settings"
+    from testing_settings import *
+else:
+    from local_settings import *
+    print "Running on  Local Environment settings"
