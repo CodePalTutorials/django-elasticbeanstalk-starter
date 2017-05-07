@@ -1,3 +1,73 @@
-## Django AWS Elastic beanstalk Starter template
+## Django AWS Elastic Beanstalk Starter template
 
-A starter template to get you up and running django app that works out of box with AWS Elastic Beanstalk. For more on how to, read read this tutorial.
+*Get a new django app up and running in in Elastic beanstalk in under 5 minutes*
+
+
+A starter template to get you up and running django app that works out of box with AWS Elastic Beanstalk. 
+
+The template contains following settings:
+
+* Default settings for Project root, static root.
+* Separate Development, Testing and Production settings for seamless deployment
+* Celery fully configured to run in Elastic beanstalk app
+* Automatic Db migrations when deploying.
+
+## How to start?
+
+**Prerequisites**
+ 
+On your local machine, you should have folloing configured:
+* Postgres DB
+* Rabbit MQ Broker
+* AWS CLI installed and configured.
+
+To complete prerequisites, refer [this](https://codepal.herokuapp.com/deploying-django-app-on-aws-using-elastic-beanstalk/) tutorial.
+
+**Steps**
+
+1. In your project folder, clone contents of this repo with:
+```
+ $ git clone git@github.com:CodePalTutorials/django-elasticbeanstalk-starter.git .
+ ```
+
+
+2. Init python virtual environement and install requirements.
+```
+$ virtualenv venv
+$ pip install -r < requirements.txt
+```
+
+3. Add local database settings in `ebdjango/local_settings.py`.
+
+4. Create elastic beanstalk app and provision a postgres database with that app.
+```bash
+$ eb init -p python2.7 <appname>
+$ eb init
+$ eb create production-env
+```
+
+For more details on how, rerfer Step 6 of [this](https://codepal.herokuapp.com/deploying-django-app-on-aws-using-elastic-beanstalk/) tutorial.
+
+5. Set correct environment variables in Elastic beanstalk environment. For ex, to make current environment production environment, set:
+
+```
+$ eb setenv ENVIRONMENT=PROD
+```
+Options are `PROD`, `TEST` and `DEVEL`..
+
+6. Set your rabbit MQ broker URL in `ebdjango/testing_settings.py` & `ebdjango/production_settings.py`. 
+
+7. Deploy with `eb deploy`.
+
+### Detailed Tutorial 
+
+Refer to the tutorial below if you need more help  with setting things up: https://codepal.herokuapp.com/deploying-django-app-on-aws-using-elastic-beanstalk/) tutorial.
+
+
+1. Creating & Deploying basic Django app on Elasticbeasntalk: https://codepal.herokuapp.com/deploying-django-app-on-aws-using-elastic-beanstalk.
+2. Adding celery on Django Elastic beanstalk app: [WIP]
+
+
+### Contribution
+
+Any suggestions and contribution and welcome. Feel free to send PR and raise issues.
