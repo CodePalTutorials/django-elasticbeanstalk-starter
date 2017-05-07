@@ -1,4 +1,3 @@
-q
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
@@ -7,4 +6,5 @@ q
 # Ingore Sqlite databases
 *.sqlite3
 
+# Jetbrains IDE files
 .idea/
