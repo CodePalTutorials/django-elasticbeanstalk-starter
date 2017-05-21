@@ -66,8 +66,7 @@ Refer to the tutorial below if you need more help  with setting things up: https
 
 
 1. Creating & Deploying basic Django app on Elastic Beanstalk: https://codepal.herokuapp.com/deploying-django-app-on-aws-using-elastic-beanstalk.
-2. Adding celery on Django Elastic beanstalk app: https://codepal.herokuapp.com/asynchronous-tasks-and-cron-jobs-in-django-using-celery-on-aws-elasticbeanstalk/
-
+2. Adding celery on Django Elastic beanstalk app: https://codepal.herokuapp.com/asynchronous-tasks-and-cron-jobs-in-aws-django-app-using-celery/
 
 ### Contribution
 
