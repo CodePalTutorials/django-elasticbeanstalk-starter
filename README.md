@@ -35,7 +35,7 @@ To complete prerequisites, refer [this](https://codepal.herokuapp.com/deploying-
 2. Init python virtual environment and install required libs from requirements.
 ```
 $ virtualenv venv
-$ pip install -r < requirements.txt
+$ pip install -r requirements.txt
 ```
 
 3. Add local database settings in `ebdjango/local_settings.py`.
