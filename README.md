@@ -21,7 +21,7 @@ On your local machine, you should have following things configured as pre requis
 * Rabbit MQ Broker
 * AWS CLI installed and configured.
 
-To complete prerequisites, refer [this](https://codepal.herokuapp.com/deploying-django-app-on-aws-using-elastic-beanstalk/) tutorial.
+To complete prerequisites, refer [this](https://www.trysudo.com/deploying-django-app-on-aws-using-elastic-beanstalk/) tutorial.
 
 **Steps**
 
@@ -47,7 +47,7 @@ $ eb init
 $ eb create production-env
 ```
 
-To provision database in Elastic beanstalk app, refer Step 6 of [this](https://codepal.herokuapp.com/deploying-django-app-on-aws-using-elastic-beanstalk/) tutorial.
+To provision database in Elastic beanstalk app, refer Step 6 of [this](https://www.trysudo.com/deploying-django-app-on-aws-using-elastic-beanstalk/) tutorial.
 
 5. Set correct environment variables in Elastic beanstalk environment. For ex, to make current environment production environment, set:
 
@@ -62,11 +62,11 @@ Options are `PROD`, `TEST` and `DEVEL`.
 
 ### Detailed Tutorial 
 
-Refer to the tutorial below if you need more help  with setting things up: https://codepal.herokuapp.com/deploying-django-app-on-aws-using-elastic-beanstalk/) tutorial.
+Refer to the tutorial below if you need more help  with setting things up: https://www.trysudo.com/deploying-django-app-on-aws-using-elastic-beanstalk/) tutorial.
 
 
-1. Creating & Deploying basic Django app on Elastic Beanstalk: https://codepal.herokuapp.com/deploying-django-app-on-aws-using-elastic-beanstalk.
-2. Adding celery on Django Elastic beanstalk app: https://codepal.herokuapp.com/asynchronous-tasks-and-cron-jobs-in-aws-django-app-using-celery/
+1. Creating & Deploying basic Django app on Elastic Beanstalk: https://www.trysudo.com/deploying-django-app-on-aws-using-elastic-beanstalk.
+2. Adding celery on Django Elastic beanstalk app: https://www.trysudo.com/asynchronous-tasks-and-cron-jobs-in-aws-django-app-using-celery/
 
 ### Contribution
 
