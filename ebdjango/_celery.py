@@ -8,7 +8,7 @@ from django.conf import settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ebdjango.settings')
 
 app = Celery('ebdjango')
-app.config_from_object('django.conf:settings')
+app.config_from_object('django.conf:settings', namespace='CELERY')
 
 # This line will tell Celery to autodiscover all your tasks.py that are in your app folders
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
