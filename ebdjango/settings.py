@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django_celery_beat',
+    'django_celery_results',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
@@ -119,9 +121,9 @@ STATIC_ROOT = os.path.join(os.path.abspath(os.path.dirname(__name__)), 'static/'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
-
-CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
-CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+CELERY_TIMEZONE = TIME_ZONE # Recommended for Celery 5.x
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler' # Updated scheduler
+CELERY_RESULT_BACKEND = 'django-db' # Updated result backend
 CELERY_SEND_EVENTS = False
 
 
